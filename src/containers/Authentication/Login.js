@@ -19,10 +19,11 @@ import styles from './styles';
 import VersionNumber from 'react-native-version-number';
 import { setSpinnerVisible, setNavigator } from '@actions/globals';
 import DeviceInfo from 'react-native-device-info';
+import VersionCheck from 'react-native-version-check';
 class Login extends Component {
   constructor(props) {
     super(props);
-  
+    
     this.state = {
       email: '',
       password: '',
@@ -34,6 +35,9 @@ class Login extends Component {
     this.props.setNavigator(this.props.navigation)
   }
   componentDidMount = () => { 
+    VersionCheck.needUpdate({
+      latestVersion: '1.0.0',
+    }).then(res=>console.log(res)).catch(err=>console.log(err));
     navigator.geolocation.getCurrentPosition(
       (position) => { 
         this.props.dispatch({
