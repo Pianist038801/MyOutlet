@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, WebView, ScrollView, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
+import { View, Alert, Linking, WebView, ScrollView, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import NavigationBar from 'react-native-navbar'; 
@@ -66,6 +66,7 @@ class MapContainer extends Component{
         if(id==1)
         this.setState({url: this.state.googleUrl});
         else
+        Linking.openURL("waze://?ll=5.12,35.23&navigate=yes").catch(err=>alert('s'));
         this.setState({url: this.state.wazeUrl});
     }
     render()
