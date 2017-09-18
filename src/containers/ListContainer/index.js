@@ -44,10 +44,12 @@ class ListContainer extends Component{
         this.setState({dayfilter: filter}); 
     }
     onGo = (data)=>{
+        //this.props.globals.navigator.goBack()
         this.props.navigation.navigate('map', {data: data})
     }
     onChange=(value)=>{
        sortVal = value;
+       this.popupDialog.dismiss();
     }
     recalculateDistance = ()=>{
         navigator.geolocation.getCurrentPosition(
@@ -75,7 +77,7 @@ class ListContainer extends Component{
                 style={Styles.nav}
                 title={CommonWidgets.renderNavBarHeader('Outlets')}
                 tintColor={Colors.brandPrimary}
-                leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.navigation.goBack(), 'sign-out')}                
+                leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.navigation.navigate('DrawerOpen'), 'menu')}                                
                 rightButton={<View style={{flexDirection: 'row'}}>
                     {CommonWidgets.renderNavBarRightButton(() => this.popupDialog.show(), 'long-arrow-up')}
                     {CommonWidgets.renderNavBarLeftButton(() => this.recalculateDistance(), 'refresh')}

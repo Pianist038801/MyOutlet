@@ -64,7 +64,9 @@ class MapContainer extends Component{
         this.setState({bdr1: Colors.brandSecondary, bdr0: Colors.brandSecondary});
         this.setState({[`bdr${id}`] : Colors.borderPrimary});
         if(id==1)
-        this.setState({url: this.state.googleUrl});
+        {
+            return Linking.openURL(`http://maps.google.com/maps?saddr=${this.props.globals.data.location.latitude},${this.props.globals.data.location.longitude}&daddr=${this.props.navigation.state.params.data._GPS_Lat},${this.props.navigation.state.params.data._GPS_Lng}`).catch(err=>alert('s'));
+        }
         else
         { 
             Linking.canOpenURL(this.state.wazeUrl).then(supported => {

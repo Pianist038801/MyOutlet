@@ -25,6 +25,6 @@ const setData = (state, action) => ({
 const actionHandlers = {
   [Types.SET_NAVIGATOR]: setNavigator,
   [Types.SET_SPINNER_VISIBLE]: spinnerVisible,
-  [Types.SET_DATA]: setData
+  [Types.SET_DATA]: setData,
 };
 export default createReducer(initialState, actionHandlers);

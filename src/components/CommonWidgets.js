@@ -6,6 +6,7 @@ import {
   StatusBar,
   Image,
   Animated,
+  Linking,
   Alert,
   TouchableOpacity } from 'react-native'; 
 import geolib from 'geolib';
@@ -45,7 +46,19 @@ renderMaterialButton(text, color, onPress, loading = false) {
       </TouchableOpacity>
     );
   },
-   
+  navigate(data){
+    const wazeUrl = `waze://?ll=${data._GPS_Lat},${data._GPS_Lng}&navigate=yes`;
+    Linking.canOpenURL(wazeUrl).then(supported => {
+      if (!supported) {
+          if(Platform.OS==='android')
+              return Linking.openURL("market://details?id=com.waze");
+          else
+              return Linking.openURL("http://itunes.apple.com/us/app/id323229106");
+      } else {
+        return Linking.openURL(wazeUrl).catch(err=>alert('s'));
+      }
+    }).catch(err => console.error('An error occurred', err));
+  },
   renderCell(data, id, curPos= {latitude: 51.5103, longitude: 7.49347}, onPress){
     var dist = geolib.getDistance(
       curPos,
@@ -54,18 +67,18 @@ renderMaterialButton(text, color, onPress, loading = false) {
     dist = dist / 1000;
     dist = dist.toFixed(2);
      return(
-      <View key={id} style={{flexDirection: 'row', padding:15, borderBottomWidth:1, borderColor: Colors.blue,justifyContent: 'space-between', alignItems: 'center'}}>
+      <TouchableOpacity onPress={()=>onPress(data)} key={id} style={{flexDirection: 'row', padding:15, borderBottomWidth:1, borderColor: Colors.blue,justifyContent: 'space-between', alignItems: 'center'}}>
         <View style={{flexDirection: 'column'}}>
         <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_Name}</Text>
         <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_ID}</Text>
-        <Text style={{...Fonts.style.h5, color: Colors.text}}>{dist}KM</Text>
         </View>
-        <TouchableOpacity onPress={()=>onPress(data)}>
+        <Text style={{...Fonts.style.h5, color: Colors.text}}>{dist}KM</Text>
+        <TouchableOpacity onPress={()=>{this.navigate(data)}}>
           <Text style={{...Fonts.style.h4, color: Colors.text}}>
             GO
           </Text>
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     )
   },
  

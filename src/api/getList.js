@@ -1,5 +1,5 @@
-export default  apiPostCall = function getList() {
-  return fetch('http://mypatchv3.com/MyOutlet/OutletServices.svc/GetOutletList/TE/V2KX201', 
+export const getList = function getList(type, userid) {
+  return fetch(`http://mypatchv3.com/MyOutlet/OutletServices.svc/GetOutletList/${type}/${userid}`,
   {
     method: 'GET'
   }
@@ -9,5 +9,16 @@ export default  apiPostCall = function getList() {
     console.log(dat.GetOutletListResult);
     console.log('_____________');
     return dat.GetOutletListResult;
+  });
+}
+export const getLogin = (userid, password, uid) => {
+  return fetch(`http://mypatchv3.com/MyOutlet/OutletServices.svc/VerifyLogin/${userid}/${password}/${uid}`,
+  {
+    method: 'GET'
+  }
+  )
+  .then((response) => response.json())
+  .then( function(dat){
+    return dat.VerifyLoginResult;
   });
 }

@@ -1,5 +1,6 @@
 import I18n from 'react-native-i18n';
 import { Metrics, Styles, Images, Colors, Fonts } from '@theme/';
+import { NavigationActions } from 'react-navigation';
 import { debounce } from 'throttle-debounce';
 
 const Utils = {
@@ -30,6 +31,13 @@ const Utils = {
       if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
     }
     return copy;
+  },
+  getResetAction(routeName, params = null) {
+    return NavigationActions.reset({
+      index: 0,
+      params,
+      actions: [NavigationActions.navigate({ routeName })],
+    });
   },
   getStringFromDate(date) {
     const month = (date.getMonth() + 1);

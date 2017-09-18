@@ -18,18 +18,20 @@ import Utils from '@src/utils';
 import styles from './styles';
 import VersionNumber from 'react-native-version-number';
 import { setSpinnerVisible, setNavigator } from '@actions/globals';
-
+import DeviceInfo from 'react-native-device-info';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.props.setNavigator(this.props.navigation)
+  
     this.state = {
       email: '',
       password: '',
     };
-   
-  
     
+  }
+  componentWillMount()
+  {
+    this.props.setNavigator(this.props.navigation)
   }
   componentDidMount = () => { 
     navigator.geolocation.getCurrentPosition(
@@ -53,11 +55,11 @@ class Login extends Component {
   }
 
   doLogin() {
-    this.props.setSpinnerVisible(true);
-    setTimeout(() => {
-      this.props.setSpinnerVisible(false);
-      this.props.navigation.navigate('list');
-    }, 500);
+    if(this.state.email == '' || this.state.password == '') 
+      alert('All fields should be valid');
+    else
+      this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})
+     
   }
  
 
@@ -82,7 +84,7 @@ class Login extends Component {
               <TextInput
                 style={Styles.textInputStyle}
                 underlineColorAndroid={'transparent'}
-                placeholder={I18n.t('EMAIL')}
+                placeholder={'USERNAME'}
                 placeholderTextColor={Colors.textPlaceholder}
                 multiline={false}
                 onChangeText={text => this.setState({ email: text })}

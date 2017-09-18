@@ -38,7 +38,7 @@ class OptionBox extends Component{
         var i =0;
         return(
             
-                    <View style={{flex:1, flexDirection: 'column', justifyContent: 'center', }}>
+                    <View style={{flex:1, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', }}>
                     {radio_props.map((obj,i)=>
                         <RadioButton labelHorizontal={true} key={i} > 
                             <RadioButtonInput
