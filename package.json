@@ -18,6 +18,8 @@
 		"react-native-navbar": "^1.7.1",
 		"react-native-popup-dialog": "^0.9.35",
 		"react-native-scrollable-tab-view": "^0.7.4",
+		"react-native-search-bar": "^3.0.0",
+		"react-native-search-box": "0.0.11",
 		"react-native-simple-radio-button": "^2.6.1",
 		"react-native-spinkit": "^1.0.2",
 		"react-native-vector-icons": "^4.0.1",

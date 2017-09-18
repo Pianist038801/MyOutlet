@@ -15,6 +15,8 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import PopupDialog,  { SlideAnimation, DialogTitle } from 'react-native-popup-dialog';
 import geolib from 'geolib';
 import OptionBox from '@components/OptionBox';
+import Search from 'react-native-search-box';
+
 var radio_props = [ 
     {label: 'Outlet Name', value: 0 },
     {label: 'Outlet ID', value: 1 },
@@ -31,7 +33,8 @@ class ListContainer extends Component{
             value3Index: 0,
             dayfilter: '_Visit_All',
             sortFilter: 0,
-            popup: false
+            popup: false,
+            searchKey: ''
         }
         _this = this;
     } 
@@ -75,7 +78,11 @@ class ListContainer extends Component{
                 <NavigationBar
                 statusBar={{ style: 'light-content' }}
                 style={Styles.nav}
-                title={CommonWidgets.renderNavBarHeader('Outlets')}
+                title={<View style={Styles.center}>
+                            <View style={{width: Metrics.screenWidth/2}}>
+                                <Search onChangeText={txt=>this.setState({searchKey: txt})} inputHeight={50} backgroundColor={Colors.brandPrimary} cancelTitle={''}/>                                
+                            </View>                 
+                        </View>}
                 tintColor={Colors.brandPrimary}
                 leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.navigation.navigate('DrawerOpen'), 'menu')}                                
                 rightButton={<View style={{flexDirection: 'row'}}>
@@ -91,7 +98,7 @@ class ListContainer extends Component{
                     ?
                     (this.props.globals.data.list!=undefined)&&
                     this.props.globals.data.list
-                    .filter(data=>(data[this.state.dayfilter] == '1'))
+                    .filter(data=>(data[this.state.dayfilter] == '1' && (this.state.searchKey=='' ? true : (data._Customer_Name.indexOf(this.state.searchKey)>=0 || data._Customer_ID.indexOf(this.state.searchKey)>=0) )))
                     .sort(function(d1, d2){
                         switch(_this.state.sortFilter)
                         {
@@ -115,6 +122,7 @@ class ListContainer extends Component{
                     :
                     (this.props.globals.data.list!=undefined)&&
                     [].concat(this.props.globals.data.list)
+                    .filter(data=> (this.state.searchKey=='' ? true : (data._Customer_Name.indexOf(this.state.searchKey)>=0 || data._Customer_ID.indexOf(this.state.searchKey)>=0) ))
                     .sort(function(d1, d2){
                         switch(_this.state.sortFilter)
                         {
