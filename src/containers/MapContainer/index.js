@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, Linking, WebView, ScrollView, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
+import { View, Alert, Linking, WebView, ScrollView, Platform, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import NavigationBar from 'react-native-navbar'; 
@@ -40,7 +40,7 @@ class MapContainer extends Component{
               .join('&')
           }
         const googleUrl = `http://maps.google.com/maps?${getParameterString(info)}`;
-        const wazeUrl = `https://embed.waze.com/fr/iframe?zoom=12&lat=${props.navigation.state.params.data._GPS_Lat}&lon=${props.navigation.state.params.data._GPS_Lng}&pin=1`;
+        const wazeUrl = `waze://?ll=${props.navigation.state.params.data._GPS_Lat},${props.navigation.state.params.data._GPS_Lng}&navigate=yes`;
         var dist = (geolib.getDistance(
           this.props.globals.data.location,
           {latitude: props.navigation.state.params.data._GPS_Lat, longitude: props.navigation.state.params.data._GPS_Lng}
@@ -53,7 +53,7 @@ class MapContainer extends Component{
             dist: dist,
             googleUrl: googleUrl,
             wazeUrl: wazeUrl,
-            url: wazeUrl,
+            url: `https://www.google.com/maps/search/?api=1&query=${props.navigation.state.params.data._GPS_Lat},${props.navigation.state.params.data._GPS_Lng}`,
             bdr0: Colors.borderPrimary,
             bdr1: Colors.brandSecondary,
         }
@@ -66,12 +66,24 @@ class MapContainer extends Component{
         if(id==1)
         this.setState({url: this.state.googleUrl});
         else
-        Linking.openURL("waze://?ll=5.12,35.23&navigate=yes").catch(err=>alert('s'));
-        this.setState({url: this.state.wazeUrl});
+        { 
+            Linking.canOpenURL(this.state.wazeUrl).then(supported => {
+                if (!supported) {
+                    if(Platform.OS==='android')
+                        return Linking.openURL("market://details?id=com.waze");
+                    else
+                        return Linking.openURL("http://itunes.apple.com/us/app/id323229106");
+                } else {
+                  return Linking.openURL(this.state.wazeUrl).catch(err=>alert('s'));
+                }
+              }).catch(err => console.error('An error occurred', err));
+            
+        }
+        //Linking.openURL("waze://?ll=5.12,35.23&navigate=yes").catch(err=>alert('s'));
+        //this.setState({url: this.state.wazeUrl});
     }
     render()
     {
-        
         return(
             <View style={[Styles.fullScreen, {flex: 1, backgroundColor:  Colors.brandSecondary }] }> 
                 <NavigationBar
