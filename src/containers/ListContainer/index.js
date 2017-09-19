@@ -15,7 +15,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import PopupDialog,  { SlideAnimation, DialogTitle } from 'react-native-popup-dialog';
 import geolib from 'geolib';
 import OptionBox from '@components/OptionBox';
-import Search from 'react-native-search-box';
+import Search from '@components/SearchBar';
 
 var radio_props = [ 
     {label: 'Outlet Name', value: 0 },
@@ -36,6 +36,7 @@ class ListContainer extends Component{
             popup: false,
             searchKey: ''
         }
+        alert(Metrics.screenWidth)
         _this = this;
     } 
     componentWillMount()
@@ -78,9 +79,9 @@ class ListContainer extends Component{
                 <NavigationBar
                 statusBar={{ style: 'light-content' }}
                 style={Styles.nav}
-                title={<View style={Styles.center}>
-                            <View style={{width: Metrics.screenWidth/2}}>
-                                <Search onChangeText={txt=>this.setState({searchKey: txt})} inputHeight={50} backgroundColor={Colors.brandPrimary} cancelTitle={''}/>                                
+                title={<View style={{marginLeft: -35}}>
+                            <View style={{ paddingTop: 5, height:40, width: Metrics.screenWidth - 140}}>
+                            <Search inputStyle={{width: Metrics.screenWidth - 140}} cancelButtonViewStyle={{width:0, height:0}} cancelButtonStyle={{width:0, height:0}} onChangeText={txt=>this.setState({searchKey: txt})} onCancel={()=>this.setState({searchKey: ''})} onDelete={()=>this.setState({searchKey: ''})} inputHeight={35} backgroundColor={Colors.brandPrimary} cancelTitle={''}/>                                
                             </View>                 
                         </View>}
                 tintColor={Colors.brandPrimary}

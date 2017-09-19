@@ -84,7 +84,7 @@ export default class Spinner extends React.Component {
           isVisible={true}
           size={60}
           type={'ThreeBounce'}
-          color={'#ff0000'}
+          color={Colors.brandLogin}
         />
         <View style={styles.textContainer}>
           <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>

@@ -116,7 +116,7 @@ class Login extends Component {
             </View>
             {CommonWidgets.renderSpacer(20)}
             {CommonWidgets.renderMaterialButton(I18n.t('LOGIN'),
-              Colors.brandSecondary, () => this.doLogin())}
+              Colors.brandLogin, () => this.doLogin())}
           </View>
         </View>
         <OverlaySpinner visible={this.props.globals.spinnerVisible} />     

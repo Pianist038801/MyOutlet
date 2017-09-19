@@ -101,7 +101,7 @@ class MapContainer extends Component{
                 <Text style={{...Fonts.style.h5, color: Colors.text}}>{this.state.data._Addr}</Text>
                 <Text style={{...Fonts.style.h5, color: Colors.text}}>{this.state.dist}KM</Text>
                 </View>
-                <WebView style={{margin: 30}} source={{uri: this.state.url}}/>
+                <WebView style={{margin: 30,}} source={{uri: this.state.url}}/>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     {CommonWidgets.renderTextButton('WazeMap', Colors.brandPrimary, ()=>{this.setMap(0)},this.state.bdr0)}
                     {CommonWidgets.renderTextButton('GoogleMap', Colors.brandPrimary, ()=>{this.setMap(1)},this.state.bdr1)}

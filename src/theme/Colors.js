@@ -1,6 +1,7 @@
 const colors = {
   brandPrimary: 'rgb(28,51,93)',
-  brandSecondary: 'rgb(255,187,0)',
+  brandLogin: 'rgb(255,187,0)',
+  brandSecondary: 'rgb(255,255,255)',
   brandThird: '#1E80C7',
 
   selected: '#f2a231',
