@@ -119,6 +119,7 @@ class Login extends Component {
               Colors.brandSecondary, () => this.doLogin())}
           </View>
         </View>
+        <OverlaySpinner visible={this.props.globals.spinnerVisible} />     
       </KeyboardAwareScrollView>
     );
   }
