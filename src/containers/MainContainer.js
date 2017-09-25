@@ -8,7 +8,10 @@ import { Colors, Fonts, Metrics } from '@theme/';
 import DrawerContent from '@components/DrawerContent';
 
 const routeConfigs = {
-  shoplist: { screen: ListContainer }, 
+  shoplist: { screen: ListContainer,
+    navigationOptions: ({navigation}) => ({
+      drawerLockMode: 'locked-closed'
+    }) }, 
   About: {screen: About,
     navigationOptions: ({navigation}) => ({
       drawerLockMode: 'locked-closed'

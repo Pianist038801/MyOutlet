@@ -35,12 +35,12 @@ class ListContainer extends Component{
             sortFilter: 0,
             popup: false,
             searchKey: ''
-        }
-        alert(Metrics.screenWidth)
+        } 
         _this = this;
     } 
     componentWillMount()
     { 
+        
         this.props.dispatch({type: "GET_LIST"}) 
     }
     onDayChoose= (filter)=>

@@ -67,14 +67,17 @@ renderMaterialButton(text, color, onPress, loading = false) {
     dist = dist / 1000;
     dist = dist.toFixed(2);
      return(
-      <TouchableOpacity onPress={()=>onPress(data)} key={id} style={{flexDirection: 'row', padding:15, borderBottomWidth:1, borderColor: Colors.blue,justifyContent: 'space-between', alignItems: 'center'}}>
-        <View style={{flexDirection: 'column'}}>
-        <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_Name}</Text>
-        <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_ID}</Text>
+      <TouchableOpacity onPress={()=>onPress(data)} key={id} style={{flexDirection: 'row', padding:15, borderBottomWidth:1, borderColor: Colors.blue, alignItems: 'center'}}>
+        <View style={{flexDirection: 'column', flex:1}}>
+          <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_Name}</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text style={{...Fonts.style.h5, color: Colors.text}}>{data._Customer_ID}</Text>
+            <Text style={{...Fonts.style.h5, color: Colors.text}}>{dist}KM</Text>
+          </View>
         </View>
-        <Text style={{...Fonts.style.h5, color: Colors.text}}>{dist}KM</Text>
+         
         <TouchableOpacity onPress={()=>{this.navigate(data)}}>
-          <Text style={{...Fonts.style.h4, color: Colors.text}}>
+          <Text style={{...Fonts.style.h4, marginLeft: Metrics.screenWidth/5, color: Colors.text}}>
             GO
           </Text>
         </TouchableOpacity>
