@@ -30,7 +30,7 @@ function configureStore(initialState = fromJS({})) {
   );
 
   // Extensions
-  sagaMiddleware.run(sagas);
+  sagaMiddleware.run(sagas, store.dispatch);
 
   return store;
 }

@@ -4,7 +4,9 @@ import {
   TextInput,
   View,
   Platform,
-  Image
+  Image,
+  Alert,
+  Linking
  } from 'react-native';
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -20,6 +22,7 @@ import VersionNumber from 'react-native-version-number';
 import { setSpinnerVisible, setNavigator } from '@actions/globals';
 import DeviceInfo from 'react-native-device-info';
 import VersionCheck from 'react-native-version-check';
+import {getLogin, getList, getVersion} from '@api/getList';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -58,11 +61,41 @@ class Login extends Component {
     this.setState({ [`${value}Focus`]: true });
   }
 
-  doLogin() {
+  async doLogin() {
     if(this.state.email == '' || this.state.password == '') 
       alert('All fields should be valid');
     else
-      this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})
+    { 
+      try {
+        //yield put({type: Types.SET_SPINNER_VISIBLE, spinnerVisible: true})
+        const versionInfo = await getVersion( Platform.OS, VersionNumber.appVersion);
+        if(versionInfo._isNewUpdate == 1)
+        {
+          if(versionInfo._isForceUpdate==1) //Force Update
+            Alert.alert(
+              'You need to update the app',
+              'Click OK to update',
+              [
+                {text: 'OK', onPress: () => {Linking.openURL(versionInfo._URL); return}},
+              ]
+            )
+          else  //Update is up to you
+            Alert.alert(
+              'New Version is available.',
+              'Do you want to update?',
+              [
+                {text: 'OK', onPress: () => {Linking.openURL(versionInfo._URL); return;} },
+                {text: 'Cancel', onPress: () => { this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})}},
+              ]
+            )
+    
+        }
+        
+      } catch (error) {
+        console.log(error)
+      }
+      //this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})
+    }
      
   }
  

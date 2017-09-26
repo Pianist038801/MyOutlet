@@ -1,7 +1,11 @@
-import { put, call, takeEvery, takeLatest, select } from 'redux-saga/effects';
+import { put, call, takeEvery, takeLatest, select, cps } from 'redux-saga/effects';
 import Types from '@actions/actionTypes';  
-import {getLogin, getList} from '@api/getList';
-
+import {getLogin, getList, getVersion} from '@api/getList';
+import VersionNumber from 'react-native-version-number';
+import React, { Component,  } from 'react';
+import {
+  Platform,Linking, Alert
+ } from 'react-native';
 const getGlobals = (state)=>state.get('globals');
 function* getListFromServer(action) {
   try {
@@ -17,10 +21,11 @@ function* getListFromServer(action) {
     console.log('sss')
   }
 }
+ 
 function* logIn(action) {
-  try {
-    //yield put({type: Types.SET_SPINNER_VISIBLE, spinnerVisible: true}) 
+  try { 
     const values =  yield call(getLogin,action.username, action.password, action.uid); 
+   
     yield put({
       type: Types.SET_DATA,
       data: {userInfo: values}, //response data
@@ -41,5 +46,5 @@ function* logIn(action) {
 }
 export default function* loadTodos() {
   yield takeLatest("GET_LIST", getListFromServer); 
-  yield takeLatest("LogIn", logIn);                                    
+  yield takeLatest("LogIn", logIn);                                   
 }
