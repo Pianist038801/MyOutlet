@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, ScrollView, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
+import { View, Alert, BackHandler, ScrollView, TouchableOpacity, FlatList, Keyboard, Image, Text } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import NavigationBar from 'react-native-navbar'; 
@@ -40,7 +40,19 @@ class ListContainer extends Component{
     } 
     componentWillMount()
     { 
-        
+        BackHandler.addEventListener('hardwareBackPress', function() {
+            // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+            // Typically you would use the navigator here to go to the last state.
+            Alert.alert(
+                'You pressed Back Button',
+                'Are you sure to exit?',
+                [
+                  {text: 'OK', onPress: () => {BackHandler.exitApp() }},
+                  {text: 'Cancel', onPress: () => {}},
+                ]
+              )
+              return true;
+           });
         this.props.dispatch({type: "GET_LIST"}) 
     }
     onDayChoose= (filter)=>
@@ -99,7 +111,7 @@ class ListContainer extends Component{
                     ?
                     (this.props.globals.data.list!=undefined)&&
                     this.props.globals.data.list
-                    .filter(data=>(data[this.state.dayfilter] == '1' && (this.state.searchKey=='' ? true : (data._Customer_Name.indexOf(this.state.searchKey)>=0 || data._Customer_ID.indexOf(this.state.searchKey)>=0) )))
+                    .filter(data=>(data[this.state.dayfilter] == '1' && (this.state.searchKey=='' ? true : (data._Customer_Name.toLowerCase().indexOf(this.state.searchKey.toLowerCase())>=0 || data._Customer_ID.toLowerCase().indexOf(this.state.searchKey.toLowerCase())>=0) )))
                     .sort(function(d1, d2){
                         switch(_this.state.sortFilter)
                         {
@@ -123,7 +135,7 @@ class ListContainer extends Component{
                     :
                     (this.props.globals.data.list!=undefined)&&
                     [].concat(this.props.globals.data.list)
-                    .filter(data=> (this.state.searchKey=='' ? true : (data._Customer_Name.indexOf(this.state.searchKey)>=0 || data._Customer_ID.indexOf(this.state.searchKey)>=0) ))
+                    .filter(data=> (this.state.searchKey=='' ? true : (data._Customer_Name.toLowerCase().indexOf(this.state.searchKey.toLowerCase())>=0 || data._Customer_ID.toLowerCase().indexOf(this.state.searchKey.toLowerCase())>=0) ))
                     .sort(function(d1, d2){
                         switch(_this.state.sortFilter)
                         {

@@ -16,6 +16,7 @@
 		"react-native-i18n": "^1.0.0",
 		"react-native-keyboard-aware-scroll-view": "^0.2.8",
 		"react-native-navbar": "^1.7.1",
+		"react-native-permissions": "^1.0.0",
 		"react-native-popup-dialog": "^0.9.35",
 		"react-native-scrollable-tab-view": "^0.7.4",
 		"react-native-search-bar": "^3.0.0",
