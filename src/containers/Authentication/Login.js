@@ -23,6 +23,7 @@ import { setSpinnerVisible, setNavigator } from '@actions/globals';
 import DeviceInfo from 'react-native-device-info';
 import VersionCheck from 'react-native-version-check';
 import {getLogin, getList, getVersion} from '@api/getList';
+const Permissions = require('react-native-permissions');
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +39,12 @@ class Login extends Component {
     this.props.setNavigator(this.props.navigation)
   }
   componentDidMount = () => { 
+    Permissions.check('location')
+    .then(response => {
+      //response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
+      if(response != 'authorized')
+        Alert.alert('You should turn on your location service.')
+    });
     VersionCheck.needUpdate({
       latestVersion: '1.0.0',
     }).then(res=>console.log(res)).catch(err=>console.log(err));
@@ -76,7 +83,7 @@ class Login extends Component {
               'You need to update the app',
               'Click OK to update',
               [
-                {text: 'OK', onPress: () => {Linking.openURL(versionInfo._URL); return}},
+                {text: 'OK', onPress: () => {Linking.openURL(versionInfo._URL); return}}
               ]
             )
           else  //Update is up to you
@@ -84,8 +91,8 @@ class Login extends Component {
               'New Version is available.',
               'Do you want to update?',
               [
-                {text: 'OK', onPress: () => {Linking.openURL(versionInfo._URL); return;} },
-                {text: 'Cancel', onPress: () => { this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})}},
+                {text: 'Yes', onPress: () => {Linking.openURL(versionInfo._URL); return;} },
+                {text: 'No', onPress: () => { this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})}},
               ]
             )
     

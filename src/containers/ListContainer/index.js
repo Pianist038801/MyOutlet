@@ -47,8 +47,8 @@ class ListContainer extends Component{
                 'You pressed Back Button',
                 'Are you sure to exit?',
                 [
-                  {text: 'OK', onPress: () => {BackHandler.exitApp() }},
-                  {text: 'Cancel', onPress: () => {}},
+                  {text: 'Yes', onPress: () => {BackHandler.exitApp() }},
+                  {text: 'No', onPress: () => {}}
                 ]
               )
               return true;
