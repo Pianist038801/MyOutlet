@@ -9,7 +9,8 @@ import {
 const getGlobals = (state)=>state.get('globals');
 function* getListFromServer(action) {
   try {
-    //yield put({type: Types.SET_SPINNER_VISIBLE, spinnerVisible: true})
+     
+    yield put({type: Types.SET_SPINNER_VISIBLE, spinnerVisible: true})
     let globals = yield select(getGlobals); 
     const values = yield call(getList, globals.data.userInfo._UserType, globals.data.userInfo._UserID);
     yield put({

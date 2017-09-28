@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -40,6 +41,7 @@
 		3EEA18C1D72848CCAB7C6F72 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0A7A4F62B56490F94CCA409 /* Ionicons.ttf */; };
 		42B3FE8EF07B4EF29AB1E3D4 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC4A0D66D8E64B66B2BD0985 /* SimpleLineIcons.ttf */; };
 		448B55CC834946478D42C8EF /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2912FD3E5E4F8794AA3450 /* libRNSpinkit.a */; };
+		46FA4BD234B54010B752D04C /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 207291CE8C3F4910A71F749A /* libReactNativePermissions.a */; };
 		5417CB6A2B394161B3508985 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CDB7CC115F445ACAEFC72DA /* libyoga.a */; };
 		54262A5A38B24FCDAFA8A291 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F17B17D10FAB4E66BFA8F538 /* Foundation.ttf */; };
 		5B72FEF050DB432BB1D55931 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA07C07434F04938BF08C856 /* libRNVectorIcons.a */; };
@@ -56,7 +58,6 @@
 		E86937111F705AB500A33D1B /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E86937091F70560600A33D1B /* libRNDeviceInfo.a */; };
 		EB8AF738C1CD4036BDFB3358 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED9D5EA7E6A430FB2881135 /* libjschelpers.a */; };
 		F276C024106149B498784D61 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B43D7B94BEC3453CB2B69A0D /* libReact.a */; };
-		46FA4BD234B54010B752D04C /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 207291CE8C3F4910A71F749A /* libReactNativePermissions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		E80032311F7D55B200CE67CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27A89F77F2B1426E9D490618 /* ReactNativePermissions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D23B34F1C767B80008B4819;
+			remoteInfo = ReactNativePermissions;
+		};
 		E86936A71F6FDF0F00A33D1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -379,6 +387,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyOutlet/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1980FBCC1DA74257B7F85872 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		207291CE8C3F4910A71F749A /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
+		27A89F77F2B1426E9D490618 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		282BED0F19A7468CB2C3F097 /* RNVersionNumber.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVersionNumber.xcodeproj; path = "../node_modules/react-native-version-number/ios/RNVersionNumber.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* MyOutlet-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyOutlet-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MyOutlet-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyOutlet-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,8 +418,6 @@
 		EA6891D06A9C4F12AEF3F0F7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		F17B17D10FAB4E66BFA8F538 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		F3CF1BB7A2C04680B3F1F5DA /* libRNVersionCheck.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVersionCheck.a; sourceTree = "<group>"; };
-		27A89F77F2B1426E9D490618 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativePermissions.xcodeproj"; path = "../node_modules/react-native-permissions/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		207291CE8C3F4910A71F749A /* libReactNativePermissions.a */ = {isa = PBXFileReference; name = "libReactNativePermissions.a"; path = "libReactNativePermissions.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -692,6 +700,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E800320F1F7D55B200CE67CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E80032321F7D55B200CE67CD /* libReactNativePermissions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E86936981F6FDF0F00A33D1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,18 +852,20 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 3NZHT7V3A7;
+						DevelopmentTeam = HZ7XCSS8L2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 3NZHT7V3A7;
+						DevelopmentTeam = HZ7XCSS8L2;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HZ7XCSS8L2;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HZ7XCSS8L2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -912,6 +930,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = E800320F1F7D55B200CE67CD /* Products */;
+					ProjectRef = 27A89F77F2B1426E9D490618 /* ReactNativePermissions.xcodeproj */;
 				},
 				{
 					ProductGroup = E86936DE1F70560600A33D1B /* Products */;
@@ -1133,6 +1155,13 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E80032321F7D55B200CE67CD /* libReactNativePermissions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativePermissions.a;
+			remoteRef = E80032311F7D55B200CE67CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		E86936A81F6FDF0F00A33D1B /* libRCTBlob-tvOS.a */ = {
@@ -1377,7 +1406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3NZHT7V3A7;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1424,7 +1453,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 3NZHT7V3A7;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
@@ -1468,7 +1497,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 3NZHT7V3A7;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
@@ -1511,7 +1540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3NZHT7V3A7;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
@@ -1548,6 +1577,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1600,6 +1630,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1649,6 +1680,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "MyOutlet-tvOSTests/Info.plist";
@@ -1685,6 +1717,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "MyOutlet-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
