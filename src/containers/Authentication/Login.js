@@ -95,9 +95,11 @@ class Login extends Component {
                 {text: 'No', onPress: () => { this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})}},
               ]
             )
-    
         }
-        
+        else
+        {
+          this.props.dispatch({type: 'LogIn', username: this.state.email, password: this.state.password, uid: Platform.OS=='android'?DeviceInfo.getInstanceID():DeviceInfo.getUniqueID()})
+        }
       } catch (error) {
         console.log(error)
       }
