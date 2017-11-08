@@ -1,0 +1,1 @@
+There are a number of outlets around you. You can get the list of them with an information of distance, outlet id, outlet name. Once you click each outlet item, you can navigate using Waze Map.

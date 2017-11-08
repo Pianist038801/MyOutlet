@@ -27,7 +27,7 @@ const Permissions = require('react-native-permissions');
 class Login extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       email: '',
       password: '',
@@ -136,6 +136,7 @@ class Login extends Component {
                 onChangeText={text => this.setState({ email: text })}
                 keyboardType={'email-address'}
                 returnKeyType={'next'}
+                value={this.state.email}
                 onSubmitEditing={() => this.loginpwd.focus()}
                 onFocus={() => this.onTextInputFocus('email')} />
             </View>
@@ -144,6 +145,7 @@ class Login extends Component {
               style={[Styles.textInputContainerStyle,
               { borderColor: Utils.getTextInputBorderColor(this.state.passwordFocus) }]}>
               <TextInput
+                value={this.state.password}
                 ref={(c) => { this.loginpwd = c; }}
                 style={Styles.textInputStyle}
                 underlineColorAndroid={'transparent'}

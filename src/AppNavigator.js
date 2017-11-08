@@ -9,14 +9,15 @@ import Login from '@containers/Authentication/Login';
 import MainContainer from '@containers/MainContainer';
 import ListContainer from '@containers/ListContainer';
 import MapContainer from '@containers/MapContainer';
-
+import Servey from '@containers/Servey';
 
 const AppNavigator = StackNavigator({
   splash: { screen: Splash },
   login: { screen: Login },
   list: {screen: ListContainer},
   map: {screen: MapContainer},
-  main: { screen: MainContainer },      
+  main: { screen: MainContainer },
+  servey: { screen: Servey }      
 }, {
   initialRouteName: 'login',
   navigationOptions: {

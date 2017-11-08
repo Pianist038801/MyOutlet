@@ -674,6 +674,7 @@
 				00E356EF1AD99517003FC87E /* MyOutletTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				0D78E507B41B43438F7FAAB2 /* Resources */,
+				E818AD7D1FB2E03600AB45DD /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -706,6 +707,23 @@
 				E80032321F7D55B200CE67CD /* libReactNativePermissions.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E818AD7D1FB2E03600AB45DD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				B43D7B94BEC3453CB2B69A0D /* libReact.a */,
+				0CDB7CC115F445ACAEFC72DA /* libyoga.a */,
+				E18CE789813D44F38644FBC0 /* libcxxreact.a */,
+				2ED9D5EA7E6A430FB2881135 /* libjschelpers.a */,
+				EA2912FD3E5E4F8794AA3450 /* libRNSpinkit.a */,
+				AA07C07434F04938BF08C856 /* libRNVectorIcons.a */,
+				F3CF1BB7A2C04680B3F1F5DA /* libRNVersionCheck.a */,
+				6C29056ACBA04A2EB0A6FD23 /* libRNVersionNumber.a */,
+				E0818A7A68624BD4A32A522D /* libRNSearchBar.a */,
+				207291CE8C3F4910A71F749A /* libReactNativePermissions.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E86936981F6FDF0F00A33D1B /* Products */ = {
@@ -853,20 +871,22 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = HZ7XCSS8L2;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = HZ7XCSS8L2;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = HZ7XCSS8L2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = HZ7XCSS8L2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
 				};
@@ -1406,6 +1426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1444,6 +1465,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOutlet.app/MyOutlet";
 			};
 			name = Debug;
@@ -1487,6 +1509,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOutlet.app/MyOutlet";
 			};
 			name = Release;
@@ -1495,9 +1518,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = HZ7XCSS8L2;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
@@ -1530,7 +1555,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = www.myoutlet.com;
 				PRODUCT_NAME = MyOutlet;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1539,8 +1567,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HZ7XCSS8L2;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
@@ -1562,7 +1592,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = www.myoutlet.com;
 				PRODUCT_NAME = MyOutlet;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1576,6 +1609,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = HZ7XCSS8L2;
 				ENABLE_TESTABILITY = YES;
@@ -1611,8 +1645,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MyOutlet-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = www.myoutlet.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8ca8c2ce-264d-482c-83a8-b7cce4fe43f5";
+				PROVISIONING_PROFILE_SPECIFIER = dev108;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1628,6 +1664,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = HZ7XCSS8L2;
@@ -1663,8 +1700,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MyOutlet-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = www.myoutlet.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "128b5263-44e4-4eee-b0dd-f73801ff4ce0";
+				PROVISIONING_PROFILE_SPECIFIER = dist108;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1701,6 +1740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MyOutlet-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOutlet-tvOS.app/MyOutlet-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -1737,6 +1777,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MyOutlet-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOutlet-tvOS.app/MyOutlet-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
